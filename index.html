@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RISHIKESH | Fine Art & Murals of Bharat</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heritage: ['Cinzel', 'serif'],
+          },
+          colors: {
+            bhumiMud: '#120c08',
+            marigoldGlow: '#f59e0b',
+            monsoonGreen: '#10b981',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #080605;
+      overflow-x: hidden;
+    }
+    .glass-premium {
+      background: rgba(22, 18, 15, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(245, 158, 11, 0.1);
+    }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* --- BHARATHAM ANIMATIONS --- */
+    @keyframes spin-slow {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    .mandala-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 150vw;
+      height: 150vw;
+      min-width: 800px;
+      min-height: 800px;
+      background-image: url('https://www.transparenttextures.com/patterns/mandala-geometric.png');
+      opacity: 0.05;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      animation: spin-slow 120s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(-20vh) scale(1.5); opacity: 0; }
+    }
+    .spark {
+      position: fixed;
+      bottom: 0;
+      background: radial-gradient(circle, #f59e0b 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(4px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .spark:nth-child(1) { width: 15px; height: 15px; left: 10%; animation: floatUp 12s infinite linear 0s; }
+    .spark:nth-child(2) { width: 25px; height: 25px; left: 30%; animation: floatUp 18s infinite linear 4s; }
+    .spark:nth-child(3) { width: 10px; height: 10px; left: 60%; animation: floatUp 15s infinite linear 2s; }
+    .spark:nth-child(4) { width: 30px; height: 30px; left: 80%; animation: floatUp 20s infinite linear 7s; }
+    .spark:nth-child(5) { width: 20px; height: 20px; left: 50%; animation: floatUp 14s infinite linear 9s; }
+  
+    @keyframes lotus-breathe {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 0.05; filter: drop-shadow(0 0 20px #f59e0b); }
+      100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.15; filter: drop-shadow(0 0 50px #f59e0b); }
+    }
+    .sacred-lotus {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60vw;
+      max-width: 600px;
+      z-index: 0;
+      pointer-events: none;
+      animation: lotus-breathe 6s infinite alternate ease-in-out;
+    }
+
+    .mouse-spark {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: #f59e0b;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      box-shadow: 0 0 10px #f59e0b, 0 0 20px #f59e0b;
+      animation: gold-fade 1s forwards cubic-bezier(0.1, 1, 0.3, 1);
+    }
+    @keyframes gold-fade {
+      0% { transform: scale(1) translateY(0); opacity: 1; }
+      100% { transform: scale(0) translateY(-20px); opacity: 0; }
+    }
+
+    @keyframes bindu-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+      70% { box-shadow: 0 0 0 20px rgba(245, 158, 11, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+    }
+    .bindu-accent {
+      width: 8px;
+      height: 8px;
+      background-color: #f59e0b;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 15px;
+      animation: bindu-pulse 2s infinite;
+    }
+  </style>
+</head>
+<body class="text-zinc-200 min-h-screen relative selection:bg-marigoldGlow selection:text-black">
+
+  <div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+    <div class="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-monsoonGreen/10 rounded-full blur-[150px]"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-marigoldGlow/10 rounded-full blur-[150px]"></div>
+    <div class="mandala-bg"></div>
+    <div class="spark"></div><div class="spark"></div><div class="spark"></div><div class="spark"></div><div class="spark"></div>
+    <svg class="sacred-lotus" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 10 C50 10, 30 40, 10 50 C30 60, 50 90, 50 90 C50 90, 70 60, 90 50 C70 40, 50 10, 50 10 Z" stroke="#f59e0b" stroke-width="0.5" fill="rgba(245, 158, 11, 0.05)"/>
+      <path d="M50 20 C50 20, 35 45, 20 50 C35 55, 50 80, 50 80 C50 80, 65 55, 80 50 C65 45, 50 20, 50 20 Z" stroke="#f59e0b" stroke-width="1" fill="rgba(245, 158, 11, 0.1)"/>
+      <path d="M50 30 C50 30, 40 48, 30 50 C40 52, 50 70, 50 70 C50 70, 60 52, 70 50 C60 48, 50 30, 50 30 Z" fill="#f59e0b" opacity="0.8"/>
+    </svg>
+  </div>
+
+  <div id="app-container" class="relative z-10">
+
+    <header class="absolute top-0 left-0 w-full p-6 md:p-8 flex justify-between items-start z-50 pointer-events-auto">
+      <div class="flex flex-col">
+        <span class="font-heritage text-marigoldGlow text-2xl md:text-3xl font-bold tracking-widest">R.</span>
+        <span class="text-zinc-500 text-[8px] md:text-[10px] uppercase tracking-[0.3em] mt-1">RISHIKESH</span>
+      </div>
+      <div class="flex flex-col items-end text-right">
+        <span class="text-zinc-400 text-[10px] md:text-xs uppercase tracking-[0.2em] font-semibold">📍 Kerala, Bharat</span>
+        <a href="#" class="text-zinc-600 text-[9px] md:text-[10px] uppercase tracking-widest mt-1 hover:text-marigoldGlow transition-colors">@rishikesh_arts</a>
+      </div>
+    </header>
+    
+    <section id="view-home" class="min-h-screen flex flex-col items-center justify-center px-6 text-center relative">
+      <div class="space-y-6 max-w-4xl mx-auto w-full mt-[-10vh]">
+        <div class="flex items-center justify-center gap-2 mb-2">
+          <span class="h-[1px] w-8 bg-marigoldGlow/50"></span>
+          <span class="text-[10px] md:text-xs font-bold tracking-[0.4em] md:tracking-[0.5em] text-marigoldGlow uppercase block flex items-center">
+            Traditional Soul <span class="bindu-accent"></span> Modern Canvas
+          </span>
+          <span class="h-[1px] w-8 bg-marigoldGlow/50"></span>
+        </div>
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-heritage font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-amber-100 to-zinc-600 uppercase break-words leading-tight px-2">
+          Rishikesh
+        </h1>
+        <p class="text-zinc-400 max-w-2xl mx-auto text-xs sm:text-sm md:text-[15px] tracking-wide leading-relaxed font-sans px-4">
+          High-fidelity murals and contemporary fine art rooted in the vivid traditions, landscapes, and timeless heritage of Bharat.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 mt-12 w-full max-w-sm justify-center px-4">
+        <button onclick="switchTab('gallery')" class="px-8 py-4 bg-gradient-to-r from-amber-500 to-marigoldGlow text-black font-extrabold rounded-xl text-xs uppercase tracking-widest transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(245,158,11,0.4)]">
+          View Masterpieces
+        </button>
+        <button onclick="switchTab('book')" class="px-8 py-4 border border-zinc-800 bg-zinc-900/40 backdrop-blur-md text-white font-bold rounded-xl text-xs uppercase tracking-widest transition-all duration-300 hover:bg-zinc-800">
+          Book Commission
+        </button>
+      </div>
+    </section>
+
+    <section id="view-gallery" class="hidden min-h-screen pt-24 pb-32 px-4 max-w-7xl mx-auto">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 border-b border-zinc-900 pb-8">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-heritage font-bold tracking-wide text-white uppercase">The Sacred Gallery</h2>
+          <p class="text-zinc-500 text-xs md:text-sm mt-2">Authentic original pieces and mural documentation direct from the studio.</p>
+        </div>
+        <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+          <button onclick="filterGallery('All')" class="filter-btn px-6 py-2.5 rounded-xl text-xs font-bold transition-all border bg-white border-white text-black whitespace-nowrap">All Works</button>
+          <button onclick="filterGallery('Canvas')" class="filter-btn px-6 py-2.5 rounded-xl text-xs font-bold transition-all border bg-zinc-900/60 border-zinc-800 text-zinc-400 hover:text-white whitespace-nowrap">Canvas</button>
+          <button onclick="filterGallery('Mural')" class="filter-btn px-6 py-2.5 rounded-xl text-xs font-bold transition-all border bg-zinc-900/60 border-zinc-800 text-zinc-400 hover:text-white whitespace-nowrap">Murals</button>
+          <button onclick="filterGallery('Digital')" class="filter-btn px-6 py-2.5 rounded-xl text-xs font-bold transition-all border bg-zinc-900/60 border-zinc-800 text-zinc-400 hover:text-white whitespace-nowrap">Digital</button>
+        </div>
+      </div>
+      <div id="gallery-grid" class="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8 pb-24">
+      </div>
+    </section>
+
+    <section id="view-book" class="hidden min-h-screen pt-24 pb-32 px-4 flex items-center justify-center">
+      <div class="w-full max-w-lg p-[1px] rounded-3xl bg-gradient-to-br from-marigoldGlow/20 to-monsoonGreen/20 shadow-2xl">
+        <div class="glass-premium rounded-[23px] p-6 md:p-10 space-y-6">
+          <div class="text-center">
+            <h2 class="text-2xl md:text-3xl font-heritage font-bold text-white tracking-wide uppercase">Commission Request</h2>
+            <p class="text-zinc-400 text-xs md:text-sm mt-2">Bring the heritage aesthetic of Bharat into your commercial space or private estate.</p>
+          </div>
+          <form onsubmit="handleCommissionSubmit(event)" class="space-y-4 pt-4">
+            <input type="text" required placeholder="Your Name" class="w-full px-4 py-4 bg-zinc-900/30 border border-zinc-800 rounded-xl text-white outline-none focus:border-marigoldGlow transition-all text-sm" />
+            <input type="email" required placeholder="Email Address" class="w-full px-4 py-4 bg-zinc-900/30 border border-zinc-800 rounded-xl text-white outline-none focus:border-marigoldGlow transition-all text-sm" />
+            <select class="w-full px-4 py-4 bg-zinc-900/30 border border-zinc-800 rounded-xl text-white outline-none focus:border-marigoldGlow transition-all text-sm appearance-none">
+              <option value="Canvas">Custom Canvas Artwork</option>
+              <option value="Mural">Traditional Wall Mural Project</option>
+              <option value="Digital">Digital Heritage Illustration</option>
+            </select>
+            <textarea required rows="4" placeholder="Describe the layout, structural wall coordinates, or requested mythological/cultural theme..." class="w-full px-4 py-4 bg-zinc-900/30 border border-zinc-800 rounded-xl text-white outline-none focus:border-marigoldGlow transition-all text-sm resize-none"></textarea>
+            <button type="submit" class="w-full py-4 bg-gradient-to-r from-amber-500 to-marigoldGlow text-black font-extrabold text-xs uppercase tracking-widest rounded-xl shadow-[0_5px_20px_rgba(245,158,11,0.2)] hover:scale-[1.01] transition-all duration-300">
+              Transmit Project Brief
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div id="checkout-dock" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-all duration-500 bg-black/85 backdrop-blur-md flex justify-end">
+    <div id="dock-panel" class="w-full max-w-md h-screen bg-[#0c0a08] border-l border-zinc-900 p-6 md:p-8 flex flex-col justify-between transform translate-x-full transition-transform duration-500 pointer-events-auto overflow-y-auto">
+      
+      <div>
+        <div class="flex justify-between items-center border-b border-zinc-900 pb-4 mb-6">
+          <span class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-marigoldGlow">Artwork Specifications</span>
+          <button onclick="closeCheckoutDock()" class="text-zinc-500 hover:text-white p-2 text-xs font-bold tracking-wider">CLOSE ✕</button>
+        </div>
+        
+        <div class="rounded-2xl overflow-hidden border border-zinc-900 h-56 mb-6 bg-zinc-950">
+          <img id="dock-item-img" class="w-full h-full object-cover" src="" alt="" />
+        </div>
+
+        <div class="space-y-3">
+          <h3 id="dock-item-title" class="text-xl md:text-2xl font-heritage font-bold text-white tracking-wide uppercase"></h3>
+          <div class="flex items-center gap-2 text-[10px] uppercase font-bold tracking-wider text-zinc-400">
+            <span id="dock-item-type" class="px-2.5 py-1 bg-zinc-900/80 rounded border border-zinc-800 text-marigoldGlow"></span>
+            <span id="dock-item-size" class="px-2.5 py-1 bg-zinc-900/80 rounded border border-zinc-800"></span>
+          </div>
+          <p id="dock-item-desc" class="text-zinc-400 text-xs md:text-sm pt-4 leading-relaxed font-sans"></p>
+        </div>
+      </div>
+
+      <div class="mt-12 border-t border-zinc-900 pt-6 bg-[#0c0a08] sticky bottom-0 space-y-4">
+        <div class="flex justify-between items-end mb-2">
+          <div>
+            <span class="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-zinc-500 block">Total Asset Value</span>
+            <span class="text-[10px] md:text-xs text-monsoonGreen font-semibold">Secure Delivery Across Bharat</span>
+          </div>
+          <span id="dock-item-price" class="text-2xl md:text-3xl font-black text-white tracking-tighter font-sans"></span>
+        </div>
+
+        <div class="hidden md:flex flex-col items-center justify-center bg-white p-4 rounded-xl mb-4 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+           <img id="dock-qr-code" src="" alt="Scan to Pay" class="w-32 h-32" />
+           <span class="text-black text-[10px] font-extrabold mt-3 uppercase tracking-widest text-center">Scan with GPay/PhonePe</span>
+        </div>
+
+        <button id="dock-pay-btn" onclick="executeUPIPayment()" class="w-full py-4 md:py-5 bg-gradient-to-r from-amber-500 via-marigoldGlow to-yellow-600 text-black font-extrabold rounded-xl tracking-widest text-[10px] md:text-xs uppercase shadow-[0_10px_25px_rgba(245,158,11,0.2)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+          Instant Secure Checkout (UPI)
+        </button>
+        
+        <div class="flex items-center justify-center gap-2 text-[8px] md:text-[9px] text-zinc-600 tracking-widest uppercase font-bold pb-2">
+          <span>🇮🇳 Swadeshi Creator Network</span>
+          <span>•</span>
+          <span>Direct Bank Transfer</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-auto">
+    <div class="px-2 py-2 bg-zinc-950/80 border border-zinc-900 backdrop-blur-2xl rounded-2xl flex items-center gap-1 shadow-2xl">
+      <button id="nav-home" onclick="switchTab('home')" class="px-5 md:px-6 py-2 rounded-xl text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all bg-white text-black">Home</button>
+      <button id="nav-gallery" onclick="switchTab('gallery')" class="px-5 md:px-6 py-2 rounded-xl text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all text-zinc-500 hover:text-zinc-300">Gallery</button>
+      <button id="nav-book" onclick="switchTab('book')" class="px-5 md:px-6 py-2 rounded-xl text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all text-zinc-500 hover:text-zinc-300">Enquire</button>
+    </div>
+  </nav>
+
+  <script>
+    const portfolioItems = [
+      { 
+        id: 1, 
+        type: 'Mural', 
+        img: '/assets/art1.jpeg', 
+        title: 'Sandhya Deepam (The Evening Light)', 
+        rawPrice: '320', 
+        size: '24" x 36"', 
+        upiId: '9633620981@upi', 
+        desc: 'Capturing the timeless Indian tradition of welcoming the dusk, this piece depicts the quiet reverence of lighting the sacred brass Thookkuvilakku (hanging lamp). The warm, golden flame pierces the moody shadows, illuminating the subjects serene devotion and the rich folds of her sari. Painted with deep earthy tones, this canvas evokes the quiet sanctity, warmth, and enduring heritage of a traditional household at twilight.' 
+      },
+      { 
+        id: 2, 
+        type: 'Canvas', 
+        img: '/assets/art2.jpeg', 
+        title: 'Swarna Mukuta Ganapati (The Golden-Crowned Lord)', 
+        rawPrice: '399', 
+        size: '18" x 24"', 
+        upiId: '9633620981@upi', 
+        desc:  'The Supreme Lord of Intellect is framed by a swirling mandala of colors—representing the vibrant energies of the earth, sky, fire, and spirit. His gentle, knowing gaze and the prominent Ekadanta (single tusk) symbolize the sacrifice required for ultimate wisdom. This open-framed canvas removes all barriers between the viewer and the divine, allowing the raw, meditative texture of the paint to breathe and resonate within your space.' 
+      }
+    ];
+
+    let activeItem = null;
+
+    function renderGallery(filterType = 'All') {
+      const grid = document.getElementById('gallery-grid');
+      grid.innerHTML = '';
+      
+      const filtered = filterType === 'All' ? portfolioItems : portfolioItems.filter(i => i.type === filterType);
+      
+      filtered.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'break-inside-avoid relative group rounded-2xl overflow-hidden border border-zinc-900 bg-zinc-950/20 backdrop-blur-md transition-all duration-500 hover:border-marigoldGlow/30';
+        card.onclick = () => openCheckoutDock(item);
+        
+        card.innerHTML = `
+          <div class="relative overflow-hidden cursor-pointer">
+            <img src="${item.img}" alt="${item.title}" class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <span class="text-marigoldGlow font-mono font-bold text-[9px] uppercase tracking-widest mb-1">${item.type}</span>
+              <h3 class="text-lg md:text-xl font-heritage font-bold text-white uppercase tracking-wide">${item.title}</h3>
+              <div class="flex items-center justify-between mt-3 pt-3 border-t border-zinc-900/60">
+                <span class="text-zinc-300 font-sans font-bold text-xs md:text-sm">₹${parseInt(item.rawPrice).toLocaleString('en-IN')}</span>
+                <span class="text-[9px] md:text-[10px] font-bold tracking-widest text-marigoldGlow border border-marigoldGlow/20 px-3 py-1.5 rounded-lg group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-marigoldGlow group-hover:text-black transition-all uppercase">Instant Buy</span>
+              </div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function switchTab(tabId) {
+      document.getElementById('view-home').classList.add('hidden');
+      document.getElementById('view-gallery').classList.add('hidden');
+      document.getElementById('view-book').classList.add('hidden');
+      
+      document.getElementById(`view-${tabId}`).classList.remove('hidden');
+      
+      ['home', 'gallery', 'book'].forEach(t => {
+        const btn = document.getElementById(`nav-${t}`);
+        if(t === tabId) {
+          btn.className = "px-5 md:px-6 py-2 rounded-xl text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all bg-white text-black shadow-lg";
+        } else {
+          btn.className = "px-5 md:px-6 py-2 rounded-xl text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all text-zinc-500 hover:text-zinc-300";
+        }
+      });
+
+      if (tabId === 'gallery') renderGallery('All');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function filterGallery(category) {
+      renderGallery(category);
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        if(btn.innerText.toLowerCase().includes(category.toLowerCase()) || (category === 'All' && btn.innerText.includes('All'))) {
+          btn.className = "filter-btn px-6 py-2.5 rounded-xl text-xs font-bold transition-all border bg-white border-white text-black whitespace-nowrap";
+        } else {
+          btn.className = "filter-btn px-6 py-2.5 rounded-xl text-xs font-bold transition-all border bg-zinc-900/60 border-zinc-800 text-zinc-400 hover:text-white whitespace-nowrap";
+        }
+      });
+    }
+
+    function openCheckoutDock(item) {
+      activeItem = item;
+      document.getElementById('dock-item-img').src = item.img;
+      document.getElementById('dock-item-title').innerText = item.title;
+      document.getElementById('dock-item-type').innerText = item.type;
+      document.getElementById('dock-item-size').innerText = `Dimensions: ${item.size}`;
+      document.getElementById('dock-item-desc').innerText = item.desc;
+      document.getElementById('dock-item-price').innerText = `₹${parseInt(item.rawPrice).toLocaleString('en-IN')}`;
+      
+      const upiString = `upi://pay?pa=${item.upiId}&pn=Rishikesh%20Arts&am=${item.rawPrice}&cu=INR`;
+      document.getElementById('dock-qr-code').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiString)}`;
+      
+      const dock = document.getElementById('checkout-dock');
+      const panel = document.getElementById('dock-panel');
+      
+      dock.classList.remove('pointer-events-none', 'opacity-0');
+      panel.classList.remove('translate-x-full');
+    }
+
+    function closeCheckoutDock() {
+      const dock = document.getElementById('checkout-dock');
+      const panel = document.getElementById('dock-panel');
+      
+      dock.classList.add('pointer-events-none', 'opacity-0');
+      panel.classList.add('translate-x-full');
+      activeItem = null;
+    }
+
+    function executeUPIPayment() {
+      if (!activeItem) return;
+      
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      
+      if (isMobile) {
+        const upiURL = `upi://pay?pa=${activeItem.upiId}&pn=Rishikesh%20Arts&am=${activeItem.rawPrice}&cu=INR&tn=Art_Manifestation_${activeItem.id}`;
+        window.location.href = upiURL;
+      } else {
+        alert("Please scan the QR code above with your Google Pay, PhonePe, or Paytm app on your phone to complete the purchase.");
+      }
+    }
+
+    function handleCommissionSubmit(e) {
+      e.preventDefault();
+      alert('Project specifications transmitted securely to the studio. Review protocol initialized.');
+      switchTab('gallery');
+    }
+
+    renderGallery('All');
+  </script>
+
+  <script>
+    document.addEventListener('mousemove', function(e) {
+      const spark = document.createElement('div');
+      spark.classList.add('mouse-spark');
+      
+      spark.style.left = e.pageX + 'px';
+      spark.style.top = e.pageY + 'px';
+      
+      document.body.appendChild(spark);
+      
+      setTimeout(() => {
+        spark.remove();
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
